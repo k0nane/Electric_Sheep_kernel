@@ -28,7 +28,26 @@ Includes the Android logger as a (loaded) module.
 
 Changelog:
 
+07-27-2011:
+Quiet warning in samsung_mipi driver config (RandyT: https://github.com/Bonsai-Project/bonsai_android_kernel/commit/05a923aaad791c21e2425da19578352efd3d01d1).
+Clean up compile warnings (RandyT: https://github.com/Bonsai-Project/bonsai_android_kernel/commit/dbb52269d6cbd042a6ebb041c7657ad8fd01afc0).
+Quiet compiler warnings (RandyT: https://github.com/Bonsai-Project/bonsai_android_kernel/commit/f752a3101dd481601195a4d915a75c1cfa90b454).
+Fix a couple of compile errors and debug message formating (RandyT: https://github.com/Bonsai-Project/bonsai_android_kernel/commit/f2f5b3d4f524cb0b4da89250542176826ab0d5c2).
+Quiet compile warning (RandyT: https://github.com/Bonsai-Project/bonsai_android_kernel/commit/55f8dd06d3edc6f70195227efc89fb5f11cd11cd).
+Fixing a Samsung typo in arch/arm/Kconfig.
+Fix tty low latency causing an interrupt during a spinlock (gzub via Bonsai: https://github.com/Bonsai-Project/bonsai_android_kernel/commit/f964f1e655fb496d78ffcf0f3ffd731d4c4070b8).
+ARM: SAMSUNG: Add a workaround for get_clock() for serial driver (Marek Szyprowski: http://android.git.kernel.org/?p=kernel/common.git;a=commit;h=7cf4b482f06df0b590a9bc1561a5a81d67e0fe4c).
+ARM: S5P: Bug fix on errors of build with CONFIG_PREEMPT_NONE (SeungChull Suh: http://android.git.kernel.org/?p=kernel/common.git;a=commit;h=4341f9b38fe33aab51439ae59593e149a6f61d9f).
+ARM: SAMSUNG: Fix build warnings because of unused codes (Kukjin Kim: http://android.git.kernel.org/?p=kernel/common.git;a=commit;h=1a95036465e6abdcb639f0d7bb1ec612663caf5b).
+
 07-26-2011:
+ARM: 5939/1: ARM: Add option CMDLINE_FORCE to force usage of the in-kernel cmdline (Alexander Holler: http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=92d2040d78f662f634efce7a5106bbed70b8708b).
+[HZ] if S5P_HIGH_RES_TIMER options is enable, use 256 HZ (Choi Jong-hwan: http://android.git.kernel.org/?p=kernel/samsung.git;a=commit;h=6eced90427618b7f62f076d1407fa95633f7d43f).
+ASoC: Allow reporting of NULL jacks (Mark Brown: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=3a278a0c65c924950c4744ba451a110998998044).
+ASoC: Add a notifier for jack status changes (Mark Brown: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=d5021ec9fc32edc6f512c2375923d757e9825f6a).
+ASoC: Move dereference after NULL test (Julia Lawall: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=4f066173fe8deb8874f41917e5d26ea2e0c46e3b).
+ASoC: Add jack_status_check callback function for GPIO jacks (Joonyoung Shim: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=c871a05315d1a76034ea06feeda92081e1d608bf).
+ARM: 6318/1: ftrace: fix and update dynamic ftrace (Rabin Vincent: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=3b6c223b1b97ad60bbb0f4efda57d649414ac2a2).
 ARM: 6314/1: ftrace: allow build without frame pointers on ARM (Rabin Vincent: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=09bfafac3e237415cc4b6adde49f9f28b3a42659).
 ARM: 6316/1: ftrace: add Thumb-2 support (Rabin Vincent: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=a3ba87a614992500cf2c47e6f788e74a971ce91f).
 ARM: 6315/1: ftrace: add ENDPROC annotations (Rabin Vincent: http://android.git.kernel.org/?p=kernel/linux-2.6.git;a=commit;h=72fa62fa5dff0e2e06491dd99c429adb137f299b).
