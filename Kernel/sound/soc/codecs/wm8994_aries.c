@@ -22,6 +22,10 @@
 #include "wm8994.h"
 #include <mach/sec_jack.h>
 
+#ifdef CONFIG_SND_VOODOO
+#include "wm8994_voodoo.h"
+#endif
+
 //------------------------------------------------
 //		Debug Feature
 //------------------------------------------------
@@ -1202,6 +1206,11 @@ void wm8994_record_main_mic(struct snd_soc_codec *codec)
         wm8994_write( codec, 0x444, 0x0004);
         wm8994_write( codec, 0x440, 0x001A);
 #endif
+
+#ifdef CONFIG_SND_VOODOO_RECORD_PRESETS
+	voodoo_hook_record_main_mic();
+#endif
+
         msleep(60);    // To remove the pop noise front of the recorded pcm data.
 
         DEBUG_LOG("===================================================> Camcorder Recording, Voice Recording");
