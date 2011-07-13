@@ -1,0 +1,91 @@
+
+#####################
+# /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root
+# Last modified: 1296115445.2104963580
+
+dir /lib 777 0 0
+dir /lib/modules 777 0 0
+file /lib/modules/dpram_recovery.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/dpram_recovery.ko 644 0 0
+file /lib/modules/pvrsrvkm.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/pvrsrvkm.ko 777 0 0
+file /lib/modules/svnet.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/svnet.ko 644 0 0
+file /lib/modules/rfs_fat.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/rfs_fat.ko 777 0 0
+file /lib/modules/s3c_lcd.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/s3c_lcd.ko 777 0 0
+file /lib/modules/s3c_bc.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/s3c_bc.ko 777 0 0
+file /lib/modules/bthid.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/bthid.ko 777 0 0
+file /lib/modules/storage.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/storage.ko 644 0 0
+file /lib/modules/fsr_stl.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/fsr_stl.ko 644 0 0
+file /lib/modules/onedram.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/onedram.ko 777 0 0
+file /lib/modules/param.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/param.ko 644 0 0
+file /lib/modules/hotspot_event_monitoring.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/hotspot_event_monitoring.ko 777 0 0
+file /lib/modules/scsi_wait_scan.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/scsi_wait_scan.ko 777 0 0
+file /lib/modules/ltespi.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/ltespi.ko 777 0 0
+file /lib/modules/vibrator.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/vibrator.ko 644 0 0
+file /lib/modules/multipdp.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/multipdp.ko 777 0 0
+file /lib/modules/dhd.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/dhd.ko 777 0 0
+file /lib/modules/j4fs.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/j4fs.ko 777 0 0
+file /lib/modules/Si4709_driver.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/Si4709_driver.ko 777 0 0
+file /lib/modules/dpram.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/dpram.ko 644 0 0
+file /lib/modules/rfs_glue.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/rfs_glue.ko 777 0 0
+file /lib/modules/modemctl.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/modemctl.ko 644 0 0
+file /lib/modules/fsr.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/fsr.ko 644 0 0
+file /lib/modules/nvstorage.ko /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lib/modules/nvstorage.ko 777 0 0
+dir /mnt 777 0 0
+dir /mnt/.lfs 777 0 0
+file /mnt/.lfs/test /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/mnt/.lfs/test 777 0 0
+dir /sbin 777 0 0
+file /sbin/ferase /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/ferase 777 0 0
+file /sbin/devmgr /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/devmgr 777 0 0
+dir /sbin/images 777 0 0
+file /sbin/images/icon.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/images/icon.png 777 0 0
+file /sbin/images/icon_firmware_install.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/images/icon_firmware_install.png 777 0 0
+file /sbin/init /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/init 777 0 0
+file /sbin/dfta /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/dfta 777 0 0
+file /sbin/adbd /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/adbd 777 0 0
+file /sbin/ffdisk /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/ffdisk 777 0 0
+file /sbin/fat.format /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/fat.format 777 0 0
+file /sbin/redbend_ua /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/redbend_ua 777 0 0
+file /sbin/fdump /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/fdump 777 0 0
+file /sbin/dfta.sh /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sbin/dfta.sh 777 0 0
+file /system.prop /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/system.prop 777 0 0
+file /init.smdkc110.sh /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/init.smdkc110.sh 777 0 0
+slink /init sbin/init 777 0 0
+file /recovery.rc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/recovery.rc 777 0 0
+file /lpm.rc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/lpm.rc 777 0 0
+slink /etc system/etc 777 0 0
+file /default.prop /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/default.prop 777 0 0
+dir /sys 777 0 0
+file /sys/stgloc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/sys/stgloc 777 0 0
+dir /res 777 0 0
+dir /res/images 777 0 0
+file /res/images/indeterminate3.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/indeterminate3.png 777 0 0
+file /res/images/progress_bar_empty_right_round.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/progress_bar_empty_right_round.png 777 0 0
+file /res/images/icon_error.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/icon_error.png 777 0 0
+file /res/images/progress_bar_right_round.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/progress_bar_right_round.png 777 0 0
+file /res/images/indeterminate5.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/indeterminate5.png 777 0 0
+file /res/images/indeterminate1.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/indeterminate1.png 777 0 0
+file /res/images/progress_bar_empty.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/progress_bar_empty.png 777 0 0
+file /res/images/progress_bar_empty_left_round.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/progress_bar_empty_left_round.png 777 0 0
+file /res/images/indeterminate2.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/indeterminate2.png 777 0 0
+file /res/images/indeterminate6.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/indeterminate6.png 777 0 0
+file /res/images/indeterminate4.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/indeterminate4.png 777 0 0
+file /res/images/icon_firmware_error.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/icon_firmware_error.png 777 0 0
+file /res/images/icon_installing.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/icon_installing.png 777 0 0
+file /res/images/progress_bar_left_round.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/progress_bar_left_round.png 777 0 0
+file /res/images/progress_bar_fill.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/progress_bar_fill.png 777 0 0
+file /res/images/icon_firmware_install.png /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/images/icon_firmware_install.png 777 0 0
+file /res/keys /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/res/keys 777 0 0
+dir /system 777 0 0
+dir /system/etc 777 0 0
+file /system/etc/ld.so.cache /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/system/etc/ld.so.cache 777 0 0
+file /init.rc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/init.rc 777 0 0
+file /fota.rc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/fota.rc 777 0 0
+dir /proc 777 0 0
+file /proc/stgloc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/proc/stgloc 777 0 0
+file /init.smdkc110.rc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/init.smdkc110.rc 777 0 0
+dir /tmp 777 0 0
+file /tmp/s3c-keypad.kcm.bin /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/tmp/s3c-keypad.kcm.bin 777 0 0
+dir /tmp/bootchart 777 0 0
+file /tmp/bootchart/stgloc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/tmp/bootchart/stgloc 777 0 0
+file /tmp/s3c-keypad.kl /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/tmp/s3c-keypad.kl 777 0 0
+dir /dev 777 0 0
+file /dev/stgloc /home/hajunho/ANRD_PROD/USA-CDMA/2010/Forte/DEV_Froyo/KRNL_REL/SECSYS/C110/../../Android/out/target/product/SCH-R910/root/dev/stgloc 777 0 0

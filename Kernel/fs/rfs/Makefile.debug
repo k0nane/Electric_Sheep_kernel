@@ -1,0 +1,36 @@
+#
+# Makefile for debug mode
+#
+EXTRA_CFLAGS += -DTFS5_DEBUG
+EXTRA_CFLAGS += -DRFS_FS_NATIVE_DEBUG_LEVEL=$(CONFIG_RFS_FS_FAT_DEBUG_LEVEL)
+
+ifeq ($(CONFIG_RFS_FS_DEBUG_LEVEL_0), y)
+EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=0
+else
+  ifeq ($(CONFIG_RFS_FS_DEBUG_LEVEL_1), y)
+  EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=1
+  else
+    ifeq ($(CONFIG_RFS_FS_DEBUG_LEVEL_2), y)
+    EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=2
+    else
+      ifeq ($(CONFIG_RFS_FS_DEBUG_LEVEL_3), y)
+      EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=3
+      else
+        ifeq ($(CONFIG_RFS_FS_DEBUG_LEVEL_4), y)
+        EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=4
+        else
+          ifeq ($(CONFIG_RFS_FS_DEBUG_LEVEL_5), y)
+          EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=5
+          else
+            ifeq ($(CONFIG_RFS_FS_DEBUG_LEVEL_6), y)
+            EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=6
+            else
+            EXTRA_CFLAGS += -DRFS_FS_GLUE_DEBUG_LEVEL=$(CONFIG_RFS_FS_DEBUG_LEVEL)
+            endif
+          endif
+        endif
+      endif
+    endif
+  endif
+endif
+
