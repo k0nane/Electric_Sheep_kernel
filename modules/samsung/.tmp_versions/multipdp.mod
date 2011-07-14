@@ -1,2 +1,2 @@
-/data/home/jspark/projects/working/SCH-R910_Froyo_Kernel/modules/samsung/multipdp/multipdp.ko
-/data/home/jspark/projects/working/SCH-R910_Froyo_Kernel/modules/samsung/multipdp/multipdp.o
+/home/james/android/indkernel/modules/samsung/multipdp/multipdp.ko
+/home/james/android/indkernel/modules/samsung/multipdp/multipdp.o

@@ -1,0 +1,13 @@
+diff --git a/Kernel/arch/arm/Kconfig b/Kernel/arch/arm/Kconfig
+--- a/Kernel/arch/arm/Kconfig
++++ b/Kernel/arch/arm/Kconfig
+@@ -1583,3 +1583,9 @@
+ 
+ source "lib/Kconfig"
+ 
++config SAMSUNG_PHONE_TTY
++	tristate "Samsung Phone Interface - TTY"
++
++config SAMSUNG_PHONE_SVNET
++	tristate "Samsung Phone Interface - SVN"
++

@@ -1,2 +1,2 @@
-/data/home/jspark/projects/working/SCH-R910_Froyo_Kernel/modules/onedram_svn/modemctl/modemctl.ko
-/data/home/jspark/projects/working/SCH-R910_Froyo_Kernel/modules/onedram_svn/modemctl/modemctl.o
+/home/james/android/indkernel/modules/onedram_svn/modemctl/modemctl.ko
+/home/james/android/indkernel/modules/onedram_svn/modemctl/modemctl.o
