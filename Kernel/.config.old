@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Linux kernel version: 2.6.32.9
-# Fri Sep  9 15:47:31 2011
+# Fri Sep  9 16:24:29 2011
 #
 CONFIG_ARM=y
 CONFIG_S5PV210=y
