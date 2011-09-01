@@ -1,8 +1,9 @@
 #!/bin/bash
+# modified by k0nane
 
 #Set CPU Environment Variable
 if [ "$CPU_JOB_NUM" = "" ] ; then
-        CPU_JOB_NUM=8
+        CPU_JOB_NUM=4
 fi
 
 
@@ -22,7 +23,7 @@ case "$PRODUCT" in
 	
     r910)		
                 MODULES="onedram_svn onedram dpram_recovery samsung"
-                KERNEL_DEF_CONFIG=forte_01_defconfig
+                KERNEL_DEF_CONFIG=k0nane_defconfig
                 ;;
     
 	*)
@@ -36,6 +37,7 @@ fi
 
 KERNEL_DIR=$PWD_DIR/Kernel
 MODULES_DIR=$PWD_DIR/modules
+BUILDS_DIR=~/android/builds
 
 
 prepare_kernel()
@@ -59,26 +61,27 @@ prepare_kernel()
 build_modules()
 {
 	echo "*************************************"
-	echo "*           build modules           *"
+	echo "*      module building disabled     *"
 	echo "*************************************"
 	echo
 
-	make -C $KERNEL_DIR ARCH=arm $KERNEL_DEF_CONFIG	
-	if [ $? != 0 ] ; then
-	    exit 1
-	fi
-	make -C $KERNEL_DIR ARCH=arm KBUILD_MODPOST_WARN=1 modules
-	if [ $? != 0 ] ; then
-	    exit 1
-	fi
+	# make -C $KERNEL_DIR ARCH=arm $KERNEL_DEF_CONFIG	
+	# if [ $? != 0 ] ; then
+	#    exit 1
+	# fi
+	# make -C $KERNEL_DIR ARCH=arm KBUILD_MODPOST_WARN=1 modules
+	# if [ $? != 0 ] ; then
+	#    exit 1
+	# fi
 
-	for module in $MODULES
-	do
-		echo cd $MODULES_DIR/$module
-		cd $MODULES_DIR/$module
-		make KDIR=$KERNEL_DIR
-	done 
-
+	# for module in $MODULES
+	# do
+	# 	echo cd $MODULES_DIR/$module
+	#	cd $MODULES_DIR/$module
+	#	make KDIR=$KERNEL_DIR
+	#done 
+	
+	# Disabled by k0nane - we don't need these
 }
 
 
@@ -106,10 +109,16 @@ build_kernel()
 	cd $KERNEL_DIR
 
 	make -j$CPU_JOB_NUM
+	
+	# Copy zImage to builds directory
+	if [ -e $KERNEL_DIR/arch/arm/boot/zImage ]
+		cp $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR/zImage_`date +%Y%m%d%H%M`
+	fi
+	
+	echo Built image is zImage_`date +%Y%m%d%H%M`
 	if [ $? != 0 ] ; then
 		exit $?
 	fi
- 
 }
 
 
