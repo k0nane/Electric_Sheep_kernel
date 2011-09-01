@@ -111,8 +111,8 @@ build_kernel()
 	make -j$CPU_JOB_NUM
 	
 	# Copy zImage to builds directory
-	if [ -e $KERNEL_DIR/arch/arm/boot/zImage ]
-		cp $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR/zImage_`date +%Y%m%d%H%M`
+	if [ -e $KERNEL_DIR/arch/arm/boot/zImage ] ; then
+		cp $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR/zImage
 	fi
 	
 	echo Built image is zImage_`date +%Y%m%d%H%M`
