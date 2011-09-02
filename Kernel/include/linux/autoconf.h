@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.32.9
- * Thu Sep  1 21:41:04 2011
+ * Thu Sep  1 21:57:27 2011
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_MMC_SDHCI_S3C_DMA 1
@@ -307,6 +307,7 @@
 #define CONFIG_SND_C110_PCM 1
 #define CONFIG_MEDIA_TUNER_TDA8290 1
 #define CONFIG_BINFMT_AOUT 1
+#define CONFIG_SEC_LOG_BUF 1
 #define CONFIG_RT_GROUP_SCHED 1
 #define CONFIG_CRYPTO_RNG2 1
 #define CONFIG_MEDIA_TUNER_TEA5761 1
@@ -453,6 +454,7 @@
 #define CONFIG_FUTEX 1
 #define CONFIG_SERIO_LIBPS2 1
 #define CONFIG_IP_NF_MATCH_ECN 1
+#define CONFIG_TINY_RCU 1
 #define CONFIG_MISC_DEVICES 1
 #define CONFIG_TINY_FSR 1
 #define CONFIG_CPU_CP15_MMU 1
