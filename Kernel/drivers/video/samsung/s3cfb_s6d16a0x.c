@@ -81,7 +81,7 @@ extern void init_mdnie_class(void);
 
 
 static struct s5p_lcd lcd;
-
+// Hey look, freq is 95 on this device - k0nane
 #ifdef CONFIG_FORTE_LCD_TUNING_00
 static struct s3cfb_lcd s6d16a0x = {
 	.width = 320,

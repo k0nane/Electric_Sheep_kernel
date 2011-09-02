@@ -2982,6 +2982,7 @@
 0x00000000	class_unregister	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	fat_alloc_new_dir	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	simple_write_end	vmlinux	EXPORT_SYMBOL
+0x00000000	get_cpu_iowait_time_us	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	__raw_readsb	vmlinux	EXPORT_SYMBOL
 0x00000000	__down_write_nested	vmlinux	EXPORT_SYMBOL
 0x00000000	spi_async	vmlinux	EXPORT_SYMBOL_GPL
