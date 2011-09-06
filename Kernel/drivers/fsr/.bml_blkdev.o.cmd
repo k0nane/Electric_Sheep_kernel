@@ -158,6 +158,7 @@ deps_drivers/fsr/bml_blkdev.o := \
   include/linux/rculist.h \
   include/linux/rcupdate.h \
     $(wildcard include/config/tree/preempt/rcu.h) \
+    $(wildcard include/config/tiny/rcu.h) \
     $(wildcard include/config/tree/rcu.h) \
   include/linux/cache.h \
     $(wildcard include/config/arch/has/cache/line/size.h) \
@@ -175,8 +176,9 @@ deps_drivers/fsr/bml_blkdev.o := \
   /home/james/android/indkernel/Kernel/arch/arm/include/asm/string.h \
   include/linux/seqlock.h \
   include/linux/completion.h \
-  include/linux/rcutree.h \
+  include/linux/rcutiny.h \
     $(wildcard include/config/no/hz.h) \
+  include/linux/rcutiny.h \
   include/linux/path.h \
   include/linux/stat.h \
   /home/james/android/indkernel/Kernel/arch/arm/include/asm/stat.h \

@@ -263,10 +263,12 @@ deps_drivers/fsr/fsr_stl.mod.o := \
   include/linux/tracepoint.h \
   include/linux/rcupdate.h \
     $(wildcard include/config/tree/preempt/rcu.h) \
+    $(wildcard include/config/tiny/rcu.h) \
     $(wildcard include/config/tree/rcu.h) \
   include/linux/completion.h \
-  include/linux/rcutree.h \
+  include/linux/rcutiny.h \
     $(wildcard include/config/no/hz.h) \
+  include/linux/rcutiny.h \
   /home/james/android/indkernel/Kernel/arch/arm/include/asm/local.h \
   include/asm-generic/local.h \
   include/linux/percpu.h \
