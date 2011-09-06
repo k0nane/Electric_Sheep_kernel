@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.32.9
- * Fri Sep  2 15:24:49 2011
+ * Tue Sep  6 15:44:42 2011
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_MMC_SDHCI_S3C_DMA 1
@@ -87,7 +87,6 @@
 #define CONFIG_NETDEV_10000 1
 #define CONFIG_NET_CLS_ROUTE 1
 #define CONFIG_S5P_SETUP_I2C1 1
-#define CONFIG_RCU_FANOUT 32
 #define CONFIG_BLK_DEV 1
 #define CONFIG_NETFILTER_XT_TARGET_TCPMSS 1
 #define CONFIG_SPI_MASTER 1
@@ -397,7 +396,6 @@
 #define CONFIG_INET_ESP 1
 #define CONFIG_HAVE_PWM 1
 #define CONFIG_NET_IPIP 1
-#define CONFIG_TREE_RCU 1
 #define CONFIG_SPI_GPIO 1
 #define CONFIG_SHMEM 1
 #define CONFIG_CRYPTO_NULL 1

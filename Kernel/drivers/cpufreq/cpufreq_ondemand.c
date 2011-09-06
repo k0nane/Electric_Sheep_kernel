@@ -522,12 +522,7 @@ static void dbs_check_cpu(struct cpu_dbs_info_s *this_dbs_info)
 	if (max_load_freq > dbs_tuners_ins.up_threshold * policy->cur) {
 		/* if we are already at full speed then break out early */
 		if (!dbs_tuners_ins.powersave_bias) {
-		
-		#ifdef CONFIG_CPU_S5PV210
-		if (policy->min > freq_next) {
-			freq_next = policy->min;
-		}
-		#endif
+	
 			if (policy->cur == policy->max)
 				return;
 
@@ -536,12 +531,6 @@ static void dbs_check_cpu(struct cpu_dbs_info_s *this_dbs_info)
 		} else {
 			int freq = powersave_bias_target(policy, policy->max,
 					CPUFREQ_RELATION_H);
-					
-			#ifdef CONFIG_CPU_S5PV210
-			if (policy->min > freq) {
-				freq = policy->min;
-			}
-			#endif
 			
 			__cpufreq_driver_target(policy, freq,
 				CPUFREQ_RELATION_L);
