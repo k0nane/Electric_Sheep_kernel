@@ -89,9 +89,12 @@ enum PMIC_VOLTAGE {
 static /*const*/ unsigned int frequency_match_1GHZ[][4] = {
 /* frequency, Mathced VDD ARM voltage , Matched VDD INT*/
 #if 1
+		{1300000, 1325, 1125, 0},
+        {1200000, 1300, 1125, 0},
         {1000000,1300/*1275*/, 1100, 0},   // TODO:HW_REQ //For Lock up issue during the Outgoing Quality Part 's power on/off test
         {800000, 1250, 1100, 1},
-        {400000, 1050, 1100, 2},
+        {600000, 1150, 1100, 2},
+		{400000, 1050, 1100, 2},
         {200000, 950, 1100, 4},
         {100000, 950, 1000, 5},
 #else //just for dvs test
@@ -118,9 +121,9 @@ const unsigned int (*frequency_match[2])[4] = {
 #if 0
 /*  voltage table */
 static const unsigned int voltage_table[16] = {
-	750, 800, 850, 900, 950, 1000, 1050,
-	1100, 1150, 1200, 1250, 1300, 1350,
-	1400, 1450, 1500
+	750, 800, 850, 900, 925, 950, 975, 1000, 1025, 1050,
+	1075, 1100, 1125, 1150, 1175, 1200, 1225, 1250, 1275,
+	1300, 1325, 1350, 1375, 1400, 1425, 1450, 1475, 1500
 };
 #endif
 
@@ -144,14 +147,19 @@ static const unsigned int dvs_volt_table_800MHZ[][3] = {
 };
 
 static const unsigned int dvs_volt_table_1GHZ[][3] = {
-        {L0, DVSARM1, DVSINT1},//DVSINT0
-        {L1, DVSARM2, DVSINT1},
-        {L2, DVSARM3, DVSINT1},
- //266       {L3, DVSARM3, DVSINT1},
-        {L3, DVSARM4, DVSINT1},
-        {L4, DVSARM4, DVSINT2},
-//        {L5, DVSARM4, DVSINT2},
-//        {L6, DVSARM4, DVSINT2},
+        {L0, DVSARM1, DVSINT1}, // 1.3ghz
+        {L1, DVSARM1, DVSINT1}, // 1.2ghz
+        {L2, DVSARM2, DVSINT1}, // 1.0ghz
+        {L3, DVSARM2, DVSINT1}, // 800mhz
+        {L4, DVSARM3, DVSINT1}, // 600mhz
+        {L5, DVSARM3, DVSINT1}, // 400mhz
+        {L6, DVSARM4, DVSINT1}, // 200mhz
+
+
+
+		
+		
+        {L7, DVSARM4, DVSINT2}, // 100mhz
 };
 
 
@@ -628,7 +636,7 @@ static int s3c_consumer_resume(struct platform_device *dev)
 		if ((saved_control  >> i) & 0x1) max8998_ldo_enable_direct(i);
 	}
 
-	/*[ ***** M110S 수평전개 H110119-3535(moviNAND issue)*********/
+	/*[ ***** M110S H110119-3535(moviNAND issue)*********/
    gpio_set_value(GPIO_MASSMEMORY_EN, 1);   
    /**********************************************************]*/
 

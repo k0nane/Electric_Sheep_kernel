@@ -46,8 +46,8 @@
 unsigned int dvfs_change_direction;
 #define CLIP_LEVEL(a, b) (a > b ? b : a)
 
-unsigned int MAXFREQ_LEVEL_SUPPORTED = 4;
-unsigned int S5PC11X_MAXFREQLEVEL = 4;
+unsigned int MAXFREQ_LEVEL_SUPPORTED = 5;
+unsigned int S5PC11X_MAXFREQLEVEL = 5;
 unsigned int S5PC11X_FREQ_TAB;
 static spinlock_t g_dvfslock = SPIN_LOCK_UNLOCKED;
 static unsigned int s5pc11x_cpufreq_level = 3;
@@ -75,19 +75,24 @@ bool g_dvfs_fix_lock_limit = false; // global variable to avoid up frequency sca
 
 #endif //ENABLE_DVFS_LOCK_HIGH
 
+extern int store_up_down_threshold(unsigned int down_threshold_value,
+				unsigned int up_threshold_value);	
+			
 /* frequency */
 static struct cpufreq_frequency_table s5pc110_freq_table_1GHZ[] = {
-	{L0, 1000*1000},
-	{L1, 800*1000},
-	{L2, 400*1000},
-	{L3, 200*1000},
-	{L4, 100*1000},
+	{L0, 1300*1000},
+	{L1, 1200*1000},
+	{L2, 1000*1000},
+	{L3, 600*1000},
+	{L4, 200*1000},
+	{L5, 100*1000},
 	{0, CPUFREQ_TABLE_END},
 };
 
 /*Assigning different index for fast scaling up*/
 static unsigned char transition_state_1GHZ[][2] = {
         {1, 0},
+		{1, 1},
         {2, 0},
         {3, 1},
         {4, 2},
@@ -127,11 +132,12 @@ static struct cpufreq_frequency_table *s5pc110_freq_table[] = {
 };
 
 static unsigned int s5pc110_thres_table_1GHZ[][2] = {
-      	{30, 70},
-        {30, 70},
-        {30, 70},
-        {30, 70},
-        {30, 70},
+		{60, 80},
+      	{60, 80},
+        {50, 90},
+        {30, 90},
+        {40, 90},
+        {20, 80},
 };
 
 static unsigned int s5pc110_thres_table_1d2GHZ[][2] = {
@@ -155,18 +161,21 @@ static int get_dvfs_perf_level(enum freq_level_states freq_level, unsigned int *
 	struct cpufreq_frequency_table *freq_tab = s5pc110_freq_table[S5PC11X_FREQ_TAB];
 	switch(freq_level)
 	{
+	case LEV_1300MHZ:
+		freq = 1300 * 1000;
+		break;
 	case LEV_1200MHZ:
-		// forte max 1GHZ  //freq = 1200 * 1000;
-		// forte max 1GHZ  //break;
+		freq = 1200 * 1000;
+		break;
 	case LEV_1000MHZ:
 		freq = 1000 * 1000;
 		break;
-	case LEV_800MHZ:
-		freq = 800 * 1000;
+	case LEV_600MHZ:
+		freq = 600 * 1000;
 		break;
-	case LEV_400MHZ:
-		freq = 400 * 1000;
-		break;
+
+		
+		
 	case LEV_200MHZ:
 		freq = 200 * 1000;
 		break;
@@ -392,7 +401,11 @@ int s5pc110_pm_target(unsigned int target_freq)
                 printk("frequency scaling error\n");
                 return -EINVAL;
         }
-
+#if 0 // fuck this
+	/*change the frequency threshold level*/
+	store_up_down_threshold(s5pc110_thres_table[S5PC11X_FREQ_TAB][index][0], 
+				s5pc110_thres_table[S5PC11X_FREQ_TAB][index][1]);
+#endif
         return ret;
 }
 
@@ -445,8 +458,8 @@ unsigned int s5pc110_getspeed(unsigned int cpu)
 }
 
 extern void print_clocks(void);
-extern int store_up_down_threshold(unsigned int down_threshold_value,
-				unsigned int up_threshold_value);
+
+
 extern void dvs_set_for_1dot2Ghz (int onoff);
 extern bool gbTransitionLogEnable;
 static int s5pc110_target(struct cpufreq_policy *policy,
@@ -606,7 +619,7 @@ static int s5pc110_target(struct cpufreq_policy *policy,
 
 	mpu_clk->rate = freqs.new * KHZ_T;
 
-#if 0 // not using it as of now
+#if 0 // seriously fuck this
 	/*change the frequency threshold level*/
 	store_up_down_threshold(s5pc110_thres_table[S5PC11X_FREQ_TAB][index][0], 
 				s5pc110_thres_table[S5PC11X_FREQ_TAB][index][1]);
@@ -709,9 +722,9 @@ static int __init s5pc110_cpu_init(struct cpufreq_policy *policy)
 		g_dvfs_high_lock_limit = 5;
 #else
 		S5PC11X_FREQ_TAB = 0;
-		S5PC11X_MAXFREQLEVEL = 4;
-		MAXFREQ_LEVEL_SUPPORTED = 5;
-		g_dvfs_high_lock_limit = 4;
+		S5PC11X_MAXFREQLEVEL = 5;
+		MAXFREQ_LEVEL_SUPPORTED = 6;
+		g_dvfs_high_lock_limit = 5;
 #endif
 	
 	printk("S5PC11X_FREQ_TAB=%d , S5PC11X_MAXFREQLEVEL=%d\n",S5PC11X_FREQ_TAB,S5PC11X_MAXFREQLEVEL);
@@ -730,7 +743,7 @@ static int __init s5pc110_cpu_init(struct cpufreq_policy *policy)
 #endif
 	cpufreq_frequency_table_get_attr(s5pc110_freq_table[S5PC11X_FREQ_TAB], policy->cpu);
 
-	policy->cpuinfo.transition_latency = 100000; //40000;	//1us
+	policy->cpuinfo.transition_latency = 80000; //40000;	//1us
 
 #ifdef CONFIG_HAS_WAKELOCK
 //	register_early_suspend(&s5pc11x_freq_suspend);	
