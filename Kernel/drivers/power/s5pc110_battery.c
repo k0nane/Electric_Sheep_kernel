@@ -63,16 +63,16 @@ extern void charging_stop_without_magic_number(void); // hanapark_DF01
 extern void lpm_mode_check(void);
 
 #ifdef __VZW_AUTH_CHECK__
-static int verizon_batt_auth_full_check(void);
-static int verizon_batt_auth_check(void);
-static int verizon_batt_auth_multi_check(void);
+// static int verizon_batt_auth_full_check(void);
+// static int verizon_batt_auth_check(void);
+// static int verizon_batt_auth_multi_check(void);
 
 extern int Reset_TA(void);
 extern int CRC_protection(void);
 extern int rom_code_protection(void);
 
 int batt_auth_check;
-static int batt_auth_full_check = 0; 
+// static int batt_auth_full_check = 0; 
 #endif
 
 extern u8 FSA9480_Get_JIG_OnOff_Status(void);
@@ -115,7 +115,7 @@ static int s3c_bat_use_data_call(int onoff);
 
 #define ADC_DATA_ARR_SIZE	6
 #define ADC_TOTAL_COUNT		10
-#define POLLING_INTERVAL	2000
+#define POLLING_INTERVAL	5000
 #ifdef __TEST_MODE_INTERFACE__
 #define POLLING_INTERVAL_TEST	1000
 #endif /* __TEST_MODE_INTERFACE__ */
@@ -1133,8 +1133,14 @@ static ssize_t s3c_bat_show_property(struct device *dev,
 			(s3c_bat_info.device_state & USE_DATA_CALL));
 		break;
 #endif /* __TEMP_BLOCK_EXCEPTION__ */
-	case AUTH_BATTERY:  // TODO:FORTE
+
 #ifdef __VZW_AUTH_CHECK__
+
+	case AUTH_BATTERY:  // TODO:FORTE // NO! BAD SAMSUNG! BAD!
+	  i += scnprintf(buf + i, PAGE_SIZE - i, "%d\n", 1);
+	break;
+
+#if 0
 #if 0
 		i += scnprintf(buf + i, PAGE_SIZE - i, "%d\n",
 			s3c_bat_check_v_f());	// hanapark_DD15
@@ -1153,6 +1159,7 @@ static ssize_t s3c_bat_show_property(struct device *dev,
       i += scnprintf(buf + i, PAGE_SIZE - i, "%d\n", 1);
 #endif
 		break;
+#endif
         default:
                 i = -EINVAL;
         }       
@@ -1463,6 +1470,9 @@ static void s3c_bat_status_update(struct power_supply *bat_ps)
 
 static unsigned int s3c_bat_check_v_f(void)
 {
+s3c_set_bat_health(POWER_SUPPLY_HEALTH_GOOD);
+   return 1;
+#if 0 // Silly Samsung, Chex are for old people!
 #ifdef __VZW_AUTH_CHECK__
 	int retval = 0;
 	static int jig_status = 0;
@@ -1514,7 +1524,7 @@ static unsigned int s3c_bat_check_v_f(void)
 	
 	adc = s3c_bat_get_adc_data(S3C_ADC_V_F);
 	s3c_bat_info.bat_info.batt_v_f_adc = adc;
-
+ 
 //	dev_info(dev, "%s: V_F ADC = %d\n", __func__, adc);
 
 	if (adc <= BATT_VF_MAX && adc >= BATT_VF_MIN) {
@@ -1528,6 +1538,7 @@ static unsigned int s3c_bat_check_v_f(void)
 
 	return rc;
 #endif	/* __VZW_AUTH_CHECK__ */
+#endif // pwned - thanks sirgatez
 }
 
 static void s3c_cable_check_status(void)
@@ -1664,6 +1675,7 @@ static void s3c_cable_work(struct work_struct *work)
 }
 
 #ifdef __VZW_AUTH_CHECK__
+#if 0
 static int verizon_batt_auth_full_check(void)
 {
 	int retval = 0;
@@ -1721,6 +1733,7 @@ static int verizon_batt_auth_check(void)
 
 	return result;
 }
+#endif // Yep.
 #endif	/* __VZW_AUTH_CHECK__ */
 
 #ifdef CONFIG_PM
