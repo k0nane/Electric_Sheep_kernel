@@ -1,1 +1,0 @@
-cmd_/home/james/android/indkernel/modules/samsung/vibetonz/vibrator.o := /opt/toolchains/arm-2009q3/bin/arm-none-linux-gnueabi-ld -EL    -r -o /home/james/android/indkernel/modules/samsung/vibetonz/vibrator.o /home/james/android/indkernel/modules/samsung/vibetonz/tspdrv.o 
