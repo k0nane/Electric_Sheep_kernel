@@ -1301,13 +1301,10 @@ int hci_send_sco(struct hci_conn *conn, struct sk_buff *skb)
 	skb->dev = (void *) hdev;
 	bt_cb(skb)->pkt_type = HCI_SCODATA_PKT;
 	skb_queue_tail(&conn->data_q, skb);
-<<<<<<< HEAD
 	hci_sched_tx(hdev);
-=======
 	tasklet_schedule(&hdev->tx_task);
 
 	return 0;
->>>>>>> 635039c... Revert "Bluetooth: Make hci_send_sco() void"
 }
 EXPORT_SYMBOL(hci_send_sco);
 

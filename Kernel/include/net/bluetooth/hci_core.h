@@ -674,13 +674,8 @@ int hci_register_notifier(struct notifier_block *nb);
 int hci_unregister_notifier(struct notifier_block *nb);
 
 int hci_send_cmd(struct hci_dev *hdev, __u16 opcode, __u32 plen, void *param);
-<<<<<<< HEAD
 int hci_send_acl(struct hci_conn *conn, struct sk_buff *skb, __u16 flags);
-void hci_send_sco(struct hci_conn *conn, struct sk_buff *skb);
-=======
-void hci_send_acl(struct hci_conn *conn, struct sk_buff *skb, __u16 flags);
 int hci_send_sco(struct hci_conn *conn, struct sk_buff *skb);
->>>>>>> 635039c... Revert "Bluetooth: Make hci_send_sco() void"
 
 void *hci_sent_cmd_data(struct hci_dev *hdev, __u16 opcode);
 
