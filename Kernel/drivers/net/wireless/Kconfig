@@ -475,13 +475,6 @@ config MWL8K
 
 	  To compile this driver as a module, choose M here: the module
 	  will be called mwl8k.  If unsure, say N.
-config WIMAX_VICTORY
-	tristate "select wimax module support for victory"
-	default m
-config WIMAX_GPIO_VICTORY
-	tristate "select wimax gpio module support for victory"
-	default m
-
 source "drivers/net/wireless/p54/Kconfig"
 source "drivers/net/wireless/ath/Kconfig"
 source "drivers/net/wireless/ipw2x00/Kconfig"

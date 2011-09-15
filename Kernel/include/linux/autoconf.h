@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.32.9
- * Thu Sep 15 18:13:52 2011
+ * Thu Sep 15 18:36:51 2011
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_MMC_SDHCI_S3C_DMA 1
@@ -311,6 +311,7 @@
 #define CONFIG_CRYPTO_RNG2 1
 #define CONFIG_MEDIA_TUNER_TEA5761 1
 #define CONFIG_WLAN_SAMSUNG_MEMSIZE_BCM 256
+#define CONFIG_BT_HID_VICTORY 1
 #define CONFIG_CRYPTO_HMAC 1
 #define CONFIG_CPU_32v7 1
 #define CONFIG_LBDAF 1

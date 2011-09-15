@@ -63,5 +63,3 @@ obj-$(CONFIG_WL12XX)	+= wl12xx/
 
 obj-$(CONFIG_IWM)	+= iwmc3200wifi/
 obj-$(CONFIG_BROADCOM_WIFI)	+= bcm4329/
-obj-$(CONFIG_WIMAX_VICTORY)	+= wimax/
-obj-$(CONFIG_WIMAX_GPIO_VICTORY)	+= wimaxgpio/
