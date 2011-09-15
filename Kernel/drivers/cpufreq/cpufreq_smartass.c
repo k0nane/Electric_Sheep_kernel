@@ -33,6 +33,9 @@
 #include <asm/cputime.h>
 #include <linux/earlysuspend.h>
 
+#define CONFIG_CPU_HUMMINGBIRD_MIN_FREQ 100000
+#define CONFIG_CPU_HUMMINGBIRD_MAX_FREQ 1300000
+
 extern unsigned long lookup_symbol_address(const char *name);
 static unsigned long (*nr_running_k)(void);
 static uint nr_running_addr;
