@@ -23,7 +23,7 @@ case "$PRODUCT" in
 	
     r910)		
                 MODULES="onedram_svn onedram dpram_recovery samsung"
-                KERNEL_DEF_CONFIG=k0nane_defconfig
+                KERNEL_DEF_CONFIG=electric_sheep_defconfig
                 ;;
     
 	*)
