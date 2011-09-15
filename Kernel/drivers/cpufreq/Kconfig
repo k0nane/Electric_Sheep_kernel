@@ -224,12 +224,4 @@ config CPU_FREQ_SAMPLING_LATENCY_MULTIPLIER
 	  Sampling latency rate multiplied by the cpu switch latency.
 	  Affect governor polling.
 
-config CPU_FREQ_GOV_CONSERVATIVE_VICTORY
-        depends on CPU_FREQ_GOV_CONSERVATIVE
-        bool "select CPU_FREQ_GOV_CONSERVATIVE for victory"
-
-config CPU_FREQ_GOV_CONSERVATIVE_ATLAS
-        depends on CPU_FREQ_GOV_CONSERVATIVE
-        bool "select CPU_FREQ_GOV_CONSERVATIVE for atlas"
-
 endif	# CPU_FREQ
