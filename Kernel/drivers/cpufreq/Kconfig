@@ -228,8 +228,6 @@ config CPU_FREQ_GOV_SMARTASS
 	tristate "'smartass' cpufreq governor"
 	depends on CPU_FREQ
 	help
-	  'smartass' - a "smart" optimized governor for the hero!
-
-	  If in doubt, say N.
+	  'smartass' - a smarter governor
 
 endif	# CPU_FREQ

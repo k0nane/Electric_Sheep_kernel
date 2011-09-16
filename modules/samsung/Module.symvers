@@ -1,0 +1,4 @@
+0x00000000	set_param_value	/home/james/android/indkernel/modules/samsung/param/param	EXPORT_SYMBOL
+0x00000000	vibetonz_class	/home/james/android/indkernel/modules/samsung/vibetonz/vibrator	EXPORT_SYMBOL
+0x00000000	immTest_test	/home/james/android/indkernel/modules/samsung/vibetonz/vibrator	EXPORT_SYMBOL
+0x00000000	get_param_value	/home/james/android/indkernel/modules/samsung/param/param	EXPORT_SYMBOL
