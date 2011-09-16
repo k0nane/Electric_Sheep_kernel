@@ -1,7 +1,7 @@
 /*
  * Automatically generated C config: don't edit
  * Linux kernel version: 2.6.32.9
- * Thu Sep 15 19:20:51 2011
+ * Thu Sep 15 20:18:21 2011
  */
 #define AUTOCONF_INCLUDED
 #define CONFIG_MMC_SDHCI_S3C_DMA 1
@@ -507,6 +507,7 @@
 #define CONFIG_NETFILTER_XT_MATCH_U32 1
 #define CONFIG_PM 1
 #define CONFIG_GENERIC_CLOCKEVENTS 1
+#define CONFIG_CPU_FREQ_SAMPLING_LATENCY 1000
 #define CONFIG_NO_HZ 1
 #define CONFIG_LOCKDEP_SUPPORT 1
 #define CONFIG_MSDOS_PARTITION 1

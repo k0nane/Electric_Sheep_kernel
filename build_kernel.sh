@@ -83,9 +83,10 @@ build_kernel()
 
 	make -j$CPU_JOB_NUM
 	
-	# Copy zImage to builds directory
+	# Generate build zip from built zImage
 	if [ -f $KERNEL_DIR/arch/arm/boot/zImage ] ; then
-		cp $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR/zImage_`date +%Y%m%d%H%M`
+		cp $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR
+		zipit-ind zImage zImage_`date +%Y%m%d%H%M`.zip
 	fi
 	
 	echo Built image is zImage_`date +%Y%m%d%H%M`
