@@ -341,7 +341,8 @@ static void cpufreq_smartass_freq_change_time_work(struct work_struct *work)
                 else if (cpu_load < min_cpu_load) {
                         if (ramp_down_step) {
 				 new_freq = policy->cur - ramp_down_step;
-                        else {
+                        }
+			else {
                                 cpu_load += 100 - max_cpu_load; // dummy load.
                                 new_freq = policy->cur * cpu_load / 100;
                         }
