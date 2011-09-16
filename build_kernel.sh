@@ -22,7 +22,6 @@ PRODUCT=r910
 case "$PRODUCT" in
 	
     r910)		
-                MODULES="onedram_svn onedram dpram_recovery samsung"
                 KERNEL_DEF_CONFIG=electric_sheep_defconfig
                 ;;
     
@@ -86,7 +85,7 @@ build_kernel()
 	# Generate build zip from built zImage
 	if [ -f $KERNEL_DIR/arch/arm/boot/zImage ] ; then
 		mv $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR/zImage
-		zipit-ind ~/android/buildszImage zImage_`date +%Y%m%d%H%M`.zip
+		zipit-ind ~/android/builds/zImage zImage_`date +%Y%m%d%H%M`.zip
 	fi
 	
 	echo Built image is zImage_`date +%Y%m%d%H%M`
