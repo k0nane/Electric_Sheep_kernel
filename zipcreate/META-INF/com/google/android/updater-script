@@ -1,0 +1,10 @@
+# START: Kernel flash
+ui_print("Writing Boot Kernel");
+show_progress(0.1, 10);
+package_extract_file("bmlwrite", "/tmp/bmlwrite");
+package_extract_file("zImage", "/tmp/zImage");
+set_perm(0, 0, 0755, "/tmp/bmlwrite");
+run_program("/tmp/bmlwrite", "/tmp/zImage", "/dev/block/bml8");
+# END: Kernel flash
+ui_print("Done");
+
