@@ -487,6 +487,7 @@ deps_config := \
 	kernel/power/Kconfig \
 	fs/Kconfig.binfmt \
 	drivers/cpuidle/Kconfig \
+	drivers/cpufreq/Kconfig.smartass \
 	drivers/cpufreq/Kconfig \
 	mm/Kconfig \
 	kernel/Kconfig.preempt \

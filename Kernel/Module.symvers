@@ -3423,6 +3423,7 @@
 0x00000000	tcp4_gro_complete	vmlinux	EXPORT_SYMBOL
 0x00000000	ip_route_input	vmlinux	EXPORT_SYMBOL
 0x00000000	device_remove_file	vmlinux	EXPORT_SYMBOL_GPL
+0x00000000	nr_running	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	ipv6_skip_exthdr	vmlinux	EXPORT_SYMBOL
 0x00000000	nf_ct_alloc_hashtable	vmlinux	EXPORT_SYMBOL_GPL
 0x00000000	touch_class	vmlinux	EXPORT_SYMBOL
