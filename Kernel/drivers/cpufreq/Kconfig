@@ -224,6 +224,13 @@ config CPU_FREQ_MIN_TICKS
 	help
 	  Minimum number of ticks between polling interval for governors.
 
+config CPU_FREQ_SAMPLING_LATENCY
+	int "Sampling rate multiplier for governors."
+	default 1000
+	help
+	 Sampling latency rate multiplied by the cpu switch latency.
+	 Affect governor polling.
+
 config CPU_FREQ_GOV_SMARTASS
 	tristate "'smartass' cpufreq governor"
 	depends on CPU_FREQ
