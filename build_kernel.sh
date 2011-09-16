@@ -58,31 +58,6 @@ prepare_kernel()
 	fi
 }
 
-build_modules()
-{
-	echo "*************************************"
-	echo "*      module building disabled     *"
-	echo "*************************************"
-	echo
-
-	# make -C $KERNEL_DIR ARCH=arm $KERNEL_DEF_CONFIG	
-	# if [ $? != 0 ] ; then
-	#    exit 1
-	# fi
-	# make -C $KERNEL_DIR ARCH=arm KBUILD_MODPOST_WARN=1 modules
-	# if [ $? != 0 ] ; then
-	#    exit 1
-	# fi
-
-	# for module in $MODULES
-	# do
-	# 	echo cd $MODULES_DIR/$module
-	#	cd $MODULES_DIR/$module
-	#	make KDIR=$KERNEL_DIR
-	#done 
-	
-	# Disabled by k0nane - we don't need these
-}
 
 
 build_kernel()
@@ -99,8 +74,6 @@ build_kernel()
 	    exit 1
 	fi
 
-	build_modules
-
 	echo "*************************************"
 	echo "*           build kernel            *"
 	echo "*************************************"
@@ -111,7 +84,7 @@ build_kernel()
 	make -j$CPU_JOB_NUM
 	
 	# Copy zImage to builds directory
-	if [ -e $KERNEL_DIR/arch/arm/boot/zImage ] ; then
+	if [ -f $KERNEL_DIR/arch/arm/boot/zImage ] ; then
 		cp $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR/zImage_`date +%Y%m%d%H%M`
 	fi
 	
