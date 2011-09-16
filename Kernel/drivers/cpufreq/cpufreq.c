@@ -754,7 +754,7 @@ static ssize_t store_UV_mV_table(struct cpufreq_policy *policy,
 
 static ssize_t show_frequency_voltage_table(struct cpufreq_policy *policy, char *buf)
 {
-	return sprintf(buf, "%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n", 
+	return sprintf(buf, "%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n", 
 		frequency_voltage_tab[0][0],frequency_voltage_tab[0][1],frequency_voltage_tab[0][2], 
 		frequency_voltage_tab[1][0],frequency_voltage_tab[1][1],frequency_voltage_tab[1][2], 
 		frequency_voltage_tab[2][0],frequency_voltage_tab[2][1],frequency_voltage_tab[2][2], 
@@ -764,7 +764,7 @@ static ssize_t show_frequency_voltage_table(struct cpufreq_policy *policy, char 
 		frequency_voltage_tab[6][0],frequency_voltage_tab[6][1],frequency_voltage_tab[6][2], 
 		frequency_voltage_tab[7][0],frequency_voltage_tab[7][1],frequency_voltage_tab[7][2], 
 		frequency_voltage_tab[8][0],frequency_voltage_tab[8][1],frequency_voltage_tab[8][2], 
-		frequency_voltage_tab[9][0],frequency_voltage_tab[9][1],frequency_voltage_tab[9][2], 
+		frequency_voltage_tab[9][0],frequency_voltage_tab[9][1],frequency_voltage_tab[9][2] 
 //		frequency_voltage_tab[10][0],frequency_voltage_tab[10][1],frequency_voltage_tab[10][2], 
 //		frequency_voltage_tab[11][0],frequency_voltage_tab[11][1],frequency_voltage_tab[11][2], 
 //		frequency_voltage_tab[12][0],frequency_voltage_tab[12][1],frequency_voltage_tab[12][2]

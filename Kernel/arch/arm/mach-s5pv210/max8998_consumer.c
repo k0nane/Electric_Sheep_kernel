@@ -108,6 +108,20 @@ static /*const*/ unsigned int frequency_match_1GHZ[][4] = {
 #endif
 };
 
+/* For user-adjustable UV */
+
+unsigned int frequency_voltage_tab[][3] = {
+/* frequency, Matched VDD ARM voltage , Matched VDD INT*/
+        {1300000, 1325, 1125}, 
+        {1200000, 1300, 1125}, 
+        {1000000, 1300, 1100}, 
+        {800000, 1250, 1100}, 
+        {600000, 1150, 1100}, 
+        {400000, 1050, 1100}, 
+        {200000, 950, 1100}, 
+        {100000, 950, 1000}, 
+};
+
 static const unsigned int frequency_match_800MHZ[][4] = {
 /* frequency, Mathced VDD ARM voltage , Matched VDD INT*/
         {800000, 1200, 1100, 0},
