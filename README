@@ -28,7 +28,67 @@ Includes the Android logger as a (loaded) module.
 
 Changelog:
 
+06-24-2011:
+Fixing a debugging placement fail in smartass governor.
+Branched to 'feature-governors'.
+
+06-23-2011:
+Major changes to cpu_thres_table.sh.
+Changes to "cpu_thres_table" sysfs entry, this can be handled via script.
+
+06-22-2011:
+Fixing a copy / paste fail.
+Fixing /sdcard mounts for DRockstar's Clockwork Mod 3.1.0.1 recovery.
+Added bash shell support in init_wrapper.
+Fixing some syntax in init_wrapper.
+Minor changes to init_wrapper.
+Added keytimer script and support (Drockstar via Rodderik: https://github.com/Rodderik/Genocide-Kernel/commit/880e45112493f3656bece0f417f1c9ec01392ffb).
+Added malware prevention patch (DroidDream) (Drockstar: https://github.com/DRockstar/Clean-Kernel-EC05/commit/19497f101712867cae24a1de6cd3f98fb88b81a4).
+Changes to init_wrapper (with proper tracking) (Drockstar: https://github.com/DRockstar/Clean-Kernel-EC05/commit/bea8fa7b503d16653fde98eb88b5a13f71d471bb#diff-8).
+Changes to init_wrapper (with proper tracking) (Tanimn: https://github.com/tanimn/Twilight_Zone_Kernel/commit/5fb5ab9ecc8e6806b91c568ae789cd08a90c8294#diff-7).
+Changes to init_wrapper in preparation of proper tracking.
+Added initial version of cpu_thres_table.sh.
+
+06-21-2011:
+Fixing a typo.
+Fixing fix_permissions' Sha-Bang for cm-recovery.
+
+06-20-2011:
+Added DRockstar's Clockwork Mod 3.1.0.1 recovery binary, added Superuser.apk, and other changes to initramfs.
+Cleaning up whitespace a bit.
+Added Clockwork Mod recovery images (purple by Drockstar: https://github.com/DRockstar/Clean-Kernel-EC05/commit/ac713f90ec2a2560bc7fb05225341a4e4772a199).
+Updating Clockwork Mod recovery binary to 3.1.0.1 (Drockstar: https://github.com/DRockstar/Clean-Kernel-EC05/commit/bdb3052cd9c439bd89ebc3d2aea8638e2b395ddd).
+Updating to Drockstar's Clockwork Mod 3.1.0.1. Using smaller recovery busybox 1.16.2 (DRockstar: https://github.com/DRockstar/Clean-Kernel-EC05/commit/ac713f90ec2a2560bc7fb05225341a4e4772a199).
+Added initial support for Clockwork Mod reboot recovery & ROM Manager support (DRockstar: https://github.com/DRockstar/Clean-Kernel-EC05/commit/ae07f3a6e1ad73fe44bf32b3b5b14ec212ed6394).
+
+06-19-2011:
+Changes to "cpu_thres_table" sysfs entry for safety and usability (min value of 20, max value of 95, corrected the error checking).
+Versioning related changes to branchHelper.sh and other files.
+Removed bash from update zip (should not be forced with kernel).
+Added audible notification to ncBuildHelper.sh (notify.wav).
+Changes to ncBuildHelper.sh (use nice to run make, always use defconfig, added total time).
+A bit of script cleanup related to wifiFlashHelper.sh.
+Added 82-nubernel_battery_mods script (init.d script to set some battery values).
+Added 81-rm_batterrystats script (init.d script to remove /data/system/batterystats.bin on boot).
+More changes to cpufreq_info script (added governor specific info).
+Enabled overclock in defconfig.
+Compilation of changes to CPU frequencies, voltages, sysfs under-volting, etc. (existz, raspdeep, Rodderik, gzub, RandyT, nemesis2all, and myself).
+
+06-15-2011:
+Fixing a possible out of bounds related to "active_states" (ssewk2x via nemesis2all: https://github.com/nemesis2all/OTB-Reloaded/commit/136dc15d6bd7ff162135aaf1494b049ddbe08988).
+
+06-14-2011:
+Fixing up transitions states in /arch/arm/mach-s5pv210/victory/cpu-freq.c.
+Enabling 1120MHz and 1200MHz states by default.
+Formatting changes for uniformity.
+New CPU frequencies and sysfs undervolting support (multiple via Rodderik: https://github.com/Rodderik/Genocide-Kernel/commit/f47551598e22409cf32f96bf1decf65b0e8d1ce9).
+
+06-13-2011:
+Branched to 'feature-clock_rates'.
+Added a bit more debugging to smartass governor.
+
 06-12-2011:
+Added extra debugging to smartass governor.
 Changed smartass governor config settings to work better with the new fixes.
 Squashing the up_min_freq bug in smartass governor.
 
@@ -75,11 +135,13 @@ Added interactive governor (Mike Chan via CyanogenMod: https://github.com/Cyanog
 Branched to 'feature-governors'.
 
 05-26-2011:
+Changes to cpufreq_info script.
 Reworked the fix a bit, I find this a bit more elegant.
 Changes to Ondemand governor so it respects the minimum scaling frequency.
 Branched to 'feature-ondemand_governor_fix'.
 
 05-25-2011:
+Addition of cpufreq_info script.
 Voodoo sound: driver v9 (supercurio: https://github.com/project-voodoo/linux_sph-d700/commit/dbd81fda1ff71e7557ea694425580074d587ebee).
 Quiet the "CONFIG_TINY_RCU not defined" warning.
 Changes to "s5pc11x_target_frq" so it respects the minimum scaling frequency.
@@ -87,9 +149,12 @@ Changes to "s5pc11x_target_frq" so it respects the minimum scaling frequency.
 05-17-2011:
 Branched to 'feature-conservative_governor_fix'.
 
+05-15-2011:
+Stupid typo...
+
 05-14-2011:
 Added new bash binary.
-Changes to recovery install script for bew bash.
+Changes to recovery install script for new bash.
 Changes to subash for new bash.
 Rename bash_profile in preparation for new custom built bash-4.1.11(2).
 Changes to bash_profile.
