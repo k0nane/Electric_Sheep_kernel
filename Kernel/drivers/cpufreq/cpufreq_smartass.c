@@ -809,5 +809,5 @@ static void __exit cpufreq_smartass_exit(void)
 module_exit(cpufreq_smartass_exit);
 
 MODULE_AUTHOR ("Erasmux");
-MODULE_DESCRIPTION ("'cpufreq_minmax' - A smart cpufreq governor optimized for the hero!");
+MODULE_DESCRIPTION ("'cpufreq_smartass' - A smart cpufreq governor optimized for the hero!");
 MODULE_LICENSE ("GPL");
