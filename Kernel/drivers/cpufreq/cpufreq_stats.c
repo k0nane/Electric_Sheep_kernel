@@ -67,15 +67,9 @@ static int cpufreq_stats_update(unsigned int cpu)
 	
 	/* Log values of cpufreq_stats struct after all this runs */
 	printk(KERN_INFO "============== STATS BLOCK");
-	printk(KERN_INFO "STATS: *stat->cpu: %d",*stat->cpu);
 	printk(KERN_INFO "STATS: *stat->total_trans: %d",stat->total_trans);
-	printk(KERN_INFO "STATS: *stat->last_time: %d",stat->last_time);
-	printk(KERN_INFO "STATS: *stat->freq_table: %d",stat->freq_table);
-	printk(KERN_INFO "STATS: *stat->max_state: %d",stat->max_state);
 	printk(KERN_INFO "STATS: *stat->state_num: %d",stat->state_num);
 	printk(KERN_INFO "STATS: *stat->last_index: %d",stat->last_index);
-	printk(KERN_INFO "STATS: *stat->freq_table: %d",stat->freq_table);
-	printk(KERN_INFO "STATS: *stat->trans_table: %d",stat->trans_table);
 	printk(KERN_INFO "============= END STATS BLOCK");
 
 	return 0;
