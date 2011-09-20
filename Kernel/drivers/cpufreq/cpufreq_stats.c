@@ -54,7 +54,6 @@ static int cpufreq_stats_update(unsigned int cpu)
 {
 	struct cpufreq_stats *stat;
 	unsigned long long cur_time;
-
 	cur_time = get_jiffies_64();
 	spin_lock(&cpufreq_stats_lock);
 	stat = per_cpu(cpufreq_stats_table, cpu);
@@ -67,14 +66,13 @@ static int cpufreq_stats_update(unsigned int cpu)
 	
 	/* Log values of cpufreq_stats struct after all this runs */
 	printk(KERN_INFO "============== STATS BLOCK");
-
-	printk(KERN_INFO "STATS: cpu: %u",*stat->cpu);
+	printk(KERN_INFO "STATS: cpu: %u",stat->cpu);
 	printk(KERN_INFO "STATS: total_trans: %u",stat->total_trans);
 	printk(KERN_INFO "STATS: last_time: %lld",stat->last_time);
 	printk(KERN_INFO "STATS: max_state: %u",stat->max_state);
 	printk(KERN_INFO "STATS: state_num: %u",stat->state_num);
 	printk(KERN_INFO "STATS: last_index: %u",stat->last_index);
-	printk(KERN_INFO "STATS: last_index: %llu",stat->time_in_state);
+	printk(KERN_INFO "STATS: time_in_state: %llu",cputime64_to_jiffies64(stat->time_in_state));
 	printk(KERN_INFO "STATS: *freq_table: %p",&stat->freq_table);
 
 	#ifdef CONFIG_CPU_FREQ_STAT_DETAILS
