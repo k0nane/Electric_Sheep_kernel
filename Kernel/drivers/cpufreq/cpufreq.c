@@ -32,8 +32,8 @@
 #define dprintk(msg...) cpufreq_debug_printk(CPUFREQ_DEBUG_CORE, \
 						"cpufreq-core", msg)
 
-int exp_UV_mV[10] = {0,0,0,0,0,0,0,0,0,0};
-int active_states[10] = {0,0,0,1,1,1,1,1,1,1};
+int exp_UV_mV[7] = {0,0,0,0,0,0,0};
+int active_states[7] = {1,1,1,1,1,1,1};
 int exp_update_states=1;
 
 extern unsigned int frequency_voltage_tab[][3];
@@ -733,7 +733,7 @@ static ssize_t show_scaling_setspeed(struct cpufreq_policy *policy, char *buf)
 
 static ssize_t show_UV_mV_table(struct cpufreq_policy *policy, char *buf)
 {
-	return sprintf(buf, "%d %d %d %d %d %d %d %d %d %d\n", exp_UV_mV[0],exp_UV_mV[1],exp_UV_mV[2],exp_UV_mV[3],exp_UV_mV[4],exp_UV_mV[5],exp_UV_mV[6],exp_UV_mV[7],exp_UV_mV[8],exp_UV_mV[9]);
+	return sprintf(buf, "%d %d %d %d %d %d %d \n", exp_UV_mV[0],exp_UV_mV[1],exp_UV_mV[2],exp_UV_mV[3],exp_UV_mV[4],exp_UV_mV[5],exp_UV_mV[6]);
 //	return sprintf(buf, "%d %d %d %d %d %d %d %d %d %d %d %d %d\n", exp_UV_mV[0],exp_UV_mV[1],exp_UV_mV[2],exp_UV_mV[3],exp_UV_mV[4],exp_UV_mV[5],exp_UV_mV[6],exp_UV_mV[7],exp_UV_mV[8],exp_UV_mV[9],exp_UV_mV[10],exp_UV_mV[11],exp_UV_mV[12]);
 //	return -EINVAL;
 }
@@ -743,7 +743,7 @@ static ssize_t store_UV_mV_table(struct cpufreq_policy *policy,
 {
 	unsigned int ret = -EINVAL;
 
-	ret = sscanf(buf, "%d %d %d %d %d %d %d %d %d %d", &exp_UV_mV[0],&exp_UV_mV[1],&exp_UV_mV[2],&exp_UV_mV[3],&exp_UV_mV[4],&exp_UV_mV[5],&exp_UV_mV[6],&exp_UV_mV[7],&exp_UV_mV[8],&exp_UV_mV[9]);
+	ret = sscanf(buf, "%d %d %d %d %d %d %d", &exp_UV_mV[0],&exp_UV_mV[1],&exp_UV_mV[2],&exp_UV_mV[3],&exp_UV_mV[4],&exp_UV_mV[5],&exp_UV_mV[6]);
 //	ret = sscanf(buf, "%d %d %d %d %d %d %d %d %d %d %d %d %d", &exp_UV_mV[0],&exp_UV_mV[1],&exp_UV_mV[2],&exp_UV_mV[3],&exp_UV_mV[4],&exp_UV_mV[5],&exp_UV_mV[6],&exp_UV_mV[7],&exp_UV_mV[8],&exp_UV_mV[9],&exp_UV_mV[10],&exp_UV_mV[11],&exp_UV_mV[12]);
 	if (ret != 1)
 		return -EINVAL;
@@ -754,7 +754,7 @@ static ssize_t store_UV_mV_table(struct cpufreq_policy *policy,
 
 static ssize_t show_frequency_voltage_table(struct cpufreq_policy *policy, char *buf)
 {
-	return sprintf(buf, "%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n", 
+	return sprintf(buf, "%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n%d %d %d\n", 
 		frequency_voltage_tab[0][0],frequency_voltage_tab[0][1],frequency_voltage_tab[0][2], 
 		frequency_voltage_tab[1][0],frequency_voltage_tab[1][1],frequency_voltage_tab[1][2], 
 		frequency_voltage_tab[2][0],frequency_voltage_tab[2][1],frequency_voltage_tab[2][2], 
@@ -762,18 +762,13 @@ static ssize_t show_frequency_voltage_table(struct cpufreq_policy *policy, char 
 		frequency_voltage_tab[4][0],frequency_voltage_tab[4][1],frequency_voltage_tab[4][2], 
 		frequency_voltage_tab[5][0],frequency_voltage_tab[5][1],frequency_voltage_tab[5][2], 
 		frequency_voltage_tab[6][0],frequency_voltage_tab[6][1],frequency_voltage_tab[6][2], 
-		frequency_voltage_tab[7][0],frequency_voltage_tab[7][1],frequency_voltage_tab[7][2], 
-		frequency_voltage_tab[8][0],frequency_voltage_tab[8][1],frequency_voltage_tab[8][2], 
-		frequency_voltage_tab[9][0],frequency_voltage_tab[9][1],frequency_voltage_tab[9][2] 
-//		frequency_voltage_tab[10][0],frequency_voltage_tab[10][1],frequency_voltage_tab[10][2], 
-//		frequency_voltage_tab[11][0],frequency_voltage_tab[11][1],frequency_voltage_tab[11][2], 
-//		frequency_voltage_tab[12][0],frequency_voltage_tab[12][1],frequency_voltage_tab[12][2]
+		frequency_voltage_tab[7][0],frequency_voltage_tab[7][1],frequency_voltage_tab[7][2],  
 	);
 }
 
 static ssize_t show_states_enabled_table(struct cpufreq_policy *policy, char *buf)
 {
-	return sprintf(buf, "%d %d %d %d %d %d %d %d %d %d\n", active_states[0],active_states[1],active_states[2],active_states[3],active_states[4],active_states[5],active_states[6],active_states[7],active_states[8],active_states[9]);
+	return sprintf(buf, "%d %d %d %d %d %d %d\n", active_states[0],active_states[1],active_states[2],active_states[3],active_states[4],active_states[5],active_states[6]);
 //	return sprintf(buf, "%d %d %d %d %d %d %d %d %d %d %d %d %d\n", active_states[0],active_states[1],active_states[2],active_states[3],active_states[4],active_states[5],active_states[6],active_states[7],active_states[8],active_states[9],active_states[10],active_states[11],active_states[12]);
 //	return -EINVAL;
 }
@@ -783,7 +778,7 @@ static ssize_t store_states_enabled_table(struct cpufreq_policy *policy,
 {
 	unsigned int ret = -EINVAL;
 
-	ret = sscanf(buf, "%d %d %d %d %d %d %d %d %d %d", &active_states[0],&active_states[1],&active_states[2],&active_states[3],&active_states[4],&active_states[5],&active_states[6],&active_states[7],&active_states[8],&active_states[9]);
+	ret = sscanf(buf, "%d %d %d %d %d %d %d", &active_states[0],&active_states[1],&active_states[2],&active_states[3],&active_states[4],&active_states[5],&active_states[6]);
 //	ret = sscanf(buf, "%d %d %d %d %d %d %d %d %d %d %d %d %d", &active_states[0],&active_states[1],&active_states[2],&active_states[3],&active_states[4],&active_states[5],&active_states[6],&active_states[7],&active_states[8],&active_states[9],&active_states[10],&active_states[11],&active_states[12]);
 	if (ret != 1)
 		return -EINVAL;
