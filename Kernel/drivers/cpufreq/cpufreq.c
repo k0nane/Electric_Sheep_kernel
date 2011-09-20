@@ -761,8 +761,7 @@ static ssize_t show_frequency_voltage_table(struct cpufreq_policy *policy, char 
 		frequency_voltage_tab[3][0],frequency_voltage_tab[3][1],frequency_voltage_tab[3][2], 
 		frequency_voltage_tab[4][0],frequency_voltage_tab[4][1],frequency_voltage_tab[4][2], 
 		frequency_voltage_tab[5][0],frequency_voltage_tab[5][1],frequency_voltage_tab[5][2], 
-		frequency_voltage_tab[6][0],frequency_voltage_tab[6][1],frequency_voltage_tab[6][2], 
-		frequency_voltage_tab[7][0],frequency_voltage_tab[7][1],frequency_voltage_tab[7][2],  
+		frequency_voltage_tab[6][0],frequency_voltage_tab[6][1],frequency_voltage_tab[6][2]  
 	);
 }
 
