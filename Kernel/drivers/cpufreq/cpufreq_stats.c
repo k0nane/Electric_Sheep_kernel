@@ -203,31 +203,43 @@ static int cpufreq_stats_create_table(struct cpufreq_policy *policy,
 	struct cpufreq_policy *data;
 	unsigned int alloc_size;
 	unsigned int cpu = policy->cpu;
+	pr_info("FOO:%s:%u enter policy=%p table=%p cpu=%u.\n", __func__, __LINE__, policy, table, cpu);
 	if (per_cpu(cpufreq_stats_table, cpu))
+	{	pr_info("FOO:%s:%u exit %d.\n", __func__, __LINE__, -EBUSY);
 		return -EBUSY;
+	}
 	stat = kzalloc(sizeof(struct cpufreq_stats), GFP_KERNEL);
 	if ((stat) == NULL)
+	{	pr_info("FOO:%s:%u exit %d.\n", __func__, __LINE__, -ENOMEM);
 		return -ENOMEM;
+	}
 
 	data = cpufreq_cpu_get(cpu);
 	if (data == NULL) {
 		ret = -EINVAL;
+		pr_info("FOO:%s:%u goto.\n", __func__, __LINE__);
 		goto error_get_fail;
 	}
 
 	ret = sysfs_create_group(&data->kobj, &stats_attr_group);
 	if (ret)
+	{	pr_info("FOO:%s:%u goto.\n", __func__, __LINE__);
 		goto error_out;
+	}
 
 	stat->cpu = cpu;
 	per_cpu(cpufreq_stats_table, cpu) = stat;
 
 	for (i = 0; table[i].frequency != CPUFREQ_TABLE_END; i++) {
 		unsigned int freq = table[i].frequency;
+		pr_info("FOO:%s:%u i=%u freq=%u.\n", __func__, __LINE__, i, freq);
 		if (freq == CPUFREQ_ENTRY_INVALID)
+		{	pr_info("FOO:%s:%u freq invalid.\n", __func__, __LINE__);
 			continue;
+		}
 		count++;
 	}
+	pr_info("FOO:%s:%u count=%u.\n", __func__, __LINE__, count);
 
 	alloc_size = count * sizeof(int) + count * sizeof(cputime64_t);
 
@@ -238,6 +250,7 @@ static int cpufreq_stats_create_table(struct cpufreq_policy *policy,
 	stat->time_in_state = kzalloc(alloc_size, GFP_KERNEL);
 	if (!stat->time_in_state) {
 		ret = -ENOMEM;
+		pr_info("FOO:%s:%u goto.\n", __func__, __LINE__);
 		goto error_out;
 	}
 	stat->freq_table = (unsigned int *)(stat->time_in_state + count);
@@ -248,23 +261,33 @@ static int cpufreq_stats_create_table(struct cpufreq_policy *policy,
 	j = 0;
 	for (i = 0; table[i].frequency != CPUFREQ_TABLE_END; i++) {
 		unsigned int freq = table[i].frequency;
+		pr_info("FOO:%s:%u i=%u j=%u freq=%u.\n", __func__, __LINE__, i, j, freq);
 		if (freq == CPUFREQ_ENTRY_INVALID)
+		{	pr_info("FOO:%s:%u freq invalid.\n", __func__, __LINE__);
 			continue;
+		}
 		if (freq_table_get_index(stat, freq) == -1)
+		{
 			stat->freq_table[j++] = freq;
+			pr_info("FOO:%s:%u freq_table[%u]=%u.\n", __func__, __LINE__, j, freq);
+		}
 	}
 	stat->state_num = j;
+	pr_info("FOO:%s:%u stat->state_num=%u.\n", __func__, __LINE__, stat->state_num);
 	spin_lock(&cpufreq_stats_lock);
 	stat->last_time = get_jiffies_64();
 	stat->last_index = freq_table_get_index(stat, policy->cur);
+	pr_info("FOO:%s:%u stat->last_index=%u.\n", __func__, __LINE__, stat->last_index);
 	spin_unlock(&cpufreq_stats_lock);
 	cpufreq_cpu_put(data);
+	pr_info("FOO:%s:%u exit 0.\n", __func__, __LINE__);
 	return 0;
 error_out:
 	cpufreq_cpu_put(data);
 error_get_fail:
 	kfree(stat);
 	per_cpu(cpufreq_stats_table, cpu) = NULL;
+	pr_info("FOO:%s:%u exit %d.\n", __func__, __LINE__, ret);
 	return ret;
 }
 
@@ -275,14 +298,22 @@ static int cpufreq_stat_notifier_policy(struct notifier_block *nb,
 	struct cpufreq_policy *policy = data;
 	struct cpufreq_frequency_table *table;
 	unsigned int cpu = policy->cpu;
+	pr_info("FOO:%s:%u enter val=%lu policy=%p cpu=%u.\n", __func__, __LINE__, val, policy, cpu);
 	if (val != CPUFREQ_NOTIFY)
+	{	pr_info("FOO:%s:%u exit 0.\n", __func__, __LINE__);
 		return 0;
+	}
 	table = cpufreq_frequency_get_table(cpu);
 	if (!table)
+	{	pr_info("FOO:%s:%u exit 0.\n", __func__, __LINE__);
 		return 0;
+	}
 	ret = cpufreq_stats_create_table(policy, table);
 	if (ret)
+	{	pr_info("FOO:%s:%u exit %d.\n", __func__, __LINE__, ret);
 		return ret;
+	}
+	pr_info("FOO:%s:%u exit 0.\n", __func__, __LINE__);
 	return 0;
 }
 
@@ -357,17 +388,21 @@ static int __init cpufreq_stats_init(void)
 	int ret;
 	unsigned int cpu;
 
+	pr_info("FOO:%s:%u enter.\n", __func__, __LINE__);
 	spin_lock_init(&cpufreq_stats_lock);
 	ret = cpufreq_register_notifier(&notifier_policy_block,
 				CPUFREQ_POLICY_NOTIFIER);
 	if (ret)
+	{	pr_info("FOO:%s:%u exit %d.\n", __func__, __LINE__, ret);
 		return ret;
+	}
 
 	ret = cpufreq_register_notifier(&notifier_trans_block,
 				CPUFREQ_TRANSITION_NOTIFIER);
 	if (ret) {
 		cpufreq_unregister_notifier(&notifier_policy_block,
 				CPUFREQ_POLICY_NOTIFIER);
+		pr_info("FOO:%s:%u exit %d.\n", __func__, __LINE__, ret);
 		return ret;
 	}
 
@@ -375,12 +410,14 @@ static int __init cpufreq_stats_init(void)
 	for_each_online_cpu(cpu) {
 		cpufreq_update_policy(cpu);
 	}
+	pr_info("FOO:%s:%u exit 0.\n", __func__, __LINE__);
 	return 0;
 }
 static void __exit cpufreq_stats_exit(void)
 {
 	unsigned int cpu;
 
+	pr_info("FOO:%s:%u enter.\n", __func__, __LINE__);
 	cpufreq_unregister_notifier(&notifier_policy_block,
 			CPUFREQ_POLICY_NOTIFIER);
 	cpufreq_unregister_notifier(&notifier_trans_block,
@@ -389,6 +426,7 @@ static void __exit cpufreq_stats_exit(void)
 	for_each_online_cpu(cpu) {
 		cpufreq_stats_free_table(cpu);
 	}
+	pr_info("FOO:%s:%u exit 0.\n", __func__, __LINE__);
 }
 
 MODULE_AUTHOR("Zou Nan hai <nanhai.zou@intel.com>");
