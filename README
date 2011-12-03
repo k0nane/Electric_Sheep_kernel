@@ -1,1 +1,44 @@
-Buildable kernel for SCH-R910.
+ELECTRIC SHEEP KERNEL (v1.0)
+by k0nane :: k0@k0nane.info
+https://github.com/k0nane
+
+Custom kernel for SCH-R910 (Samsung Galaxy Indulge).
+
+Changes from stock source (credits to):
+- Kconfig fix to allow compilation (mkasick)
+- EXT4 enabled alongside RFS
+- CIFS, TUN enabled
+- TCPMSS clamping enabled
+- Voodoo Sound v10 added (supercurio)
+- RNDIS enabled
+- Idle timer backported from 2.6.34 (nullghost via tanimn)
+- TinyRCU added
+- TinyRCU enabled as default (tanimn via thomasskull666)
+- 4k read-ahead set (Rodderik)
+- sched_autogroup v4 patch (Rodderik)
+- EXT4 patch series by Theodore Ts'o (via Randy Terbrush)
+- noop scheduler set to default
+- lowmemkiller and low-level ARM platform fixes (via nubecoder)
+- plat-samsung clock code updated (Randy Terbrush)
+- Bluetooth fixes (via nubecoder)
+- Android platform fixes
+- BFQ scheduler by Paolo Valente added (Randy Terbrush)
+- BFQ updated to v2-r1 (via nubecoder and Randy Terbrush)
+- Boot logo added (creation tool: nubecoder, morfic, k0nane)
+- Overclock to 1.2ghz and 1.3ghz added (tanimn)
+- Updated to jhash3 for speed
+- scaling_available_frequencies sysfs item exposed (nullghost)
+- Interactive governor by Mike Chan (via tanimn, fix by tanimn)
+- Smartass governor by erasmux, fixes by others (via nubecoder),
+  tweaks (nubecoder)
+- WiMAX driver removed
+- Default clock speed set to 1ghz (Rodderik)
+- User undervolting partially implemented
+
+Known bugs:
+- User undervolting via Voltage Control is broken due to empty
+  sysfs items
+
+Many thanks go to tanimn, nubecoder, and Rodderik for code, assistance,
+and some sanity checks. Without them (and their Githubs!), this kernel
+would not be possible.
