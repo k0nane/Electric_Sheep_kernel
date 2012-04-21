@@ -1,0 +1,19 @@
+#
+# Kernel flashing script by k0nane :: k0@k0nane.info
+#
+
+ui_print("Extracting contents...");
+show_progress(0.1, 10);
+package_extract_file("bmlwrite", "/tmp/bmlwrite");
+package_extract_file("zImage", "/tmp/zImage");
+
+ui_print("Setting permissions...");
+show_progress(0.2, 10);
+set_perm(0, 0, 0755, "/tmp/bmlwrite");
+
+ui_print("Doing the electric boogaloo...");
+show_progress(0.3, 10);
+run_program("/tmp/bmlwrite", "/tmp/zImage", "/dev/block/bml8");
+
+ui_print("Done! Reboot your device.");
+

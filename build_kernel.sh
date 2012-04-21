@@ -1,89 +1,36 @@
 #!/bin/bash
-# modified by k0nane
+# Modifed from Samsung original by k0nane :: k0@k0nane.info
 
-#Set CPU Environment Variable
-if [ "$CPU_JOB_NUM" = "" ] ; then
-        CPU_JOB_NUM=4
-fi
+# Save current working directory
+CWD=$PWD
 
+# Set environment variables
 
-Usage()
-{
-echo "build_kernel.sh - building script android kernel"
-echo "  Usage: ./build_kernel.sh "
-echo
-
-exit 1
-}
-
-OPTION=-k
-PRODUCT=r910
-
-case "$PRODUCT" in
-	
-    r910)		
-                MODULES="onedram_svn onedram dpram_recovery samsung"
-                KERNEL_DEF_CONFIG=k0nane_defconfig
-                ;;
-    
-	*)
-		Usage
-		;;
-esac 
-
-if [ ! $PWD_DIR ] ; then
-	PWD_DIR=$(pwd)
-fi
-
-KERNEL_DIR=$PWD_DIR/Kernel
-MODULES_DIR=$PWD_DIR/modules
+KERNEL_DIR=$CWD/Kernel
 BUILDS_DIR=~/android/builds
-
+DEFCONFIG=indulge_recovery_defconfig
+CROSS_COMPILER=/opt/toolchains/arm-2009q3/bin/arm-none-linux-gnueabi-
+THREADS=4
+GENERATE_ZIP=y
+BUILD_SUFFIX=`date +%Y%m%d%H%M`
 
 prepare_kernel()
 {
-	echo "*************************************"
-	echo "*          prepare kernel           *"
-	echo "*************************************"
+	echo 
+	echo "/*        Preparing kernel...        */"
+	echo 
 	echo
 
-        make distclean
-	make -C $KERNEL_DIR ARCH=arm $KERNEL_DEF_CONFIG
+    make distclean
+	make -j $THREADS -C $KERNEL_DIR ARCH=arm $DEFCONFIG
 	if [ $? != 0 ] ; then
 	    exit 1
 	fi
-	make -C $KERNEL_DIR ARCH=arm prepare
+	make -j $THREADS -C $KERNEL_DIR ARCH=arm prepare
 	if [ $? != 0 ] ; then
 	    exit 1
 	fi
 }
-
-build_modules()
-{
-	echo "*************************************"
-	echo "*      module building disabled     *"
-	echo "*************************************"
-	echo
-
-	# make -C $KERNEL_DIR ARCH=arm $KERNEL_DEF_CONFIG	
-	# if [ $? != 0 ] ; then
-	#    exit 1
-	# fi
-	# make -C $KERNEL_DIR ARCH=arm KBUILD_MODPOST_WARN=1 modules
-	# if [ $? != 0 ] ; then
-	#    exit 1
-	# fi
-
-	# for module in $MODULES
-	# do
-	# 	echo cd $MODULES_DIR/$module
-	#	cd $MODULES_DIR/$module
-	#	make KDIR=$KERNEL_DIR
-	#done 
-	
-	# Disabled by k0nane - we don't need these
-}
-
 
 build_kernel()
 {
@@ -93,43 +40,48 @@ build_kernel()
 		fi
 	fi
 
-	echo "make " -C $KERNEL_DIR ARCH=arm $KERNEL_DEF_CONFIG
-	make -C $KERNEL_DIR ARCH=arm $KERNEL_DEF_CONFIG
+	make -j $THREADS -C $KERNEL_DIR ARCH=arm $DEFCONFIG
 	if [ $? != 0 ] ; then
 	    exit 1
 	fi
 
-	build_modules
-
-	echo "*************************************"
-	echo "*           build kernel            *"
-	echo "*************************************"
+	echo 
+	echo "/*        Building kernel...         */"
 	echo
 	
 	cd $KERNEL_DIR
 
-	make -j$CPU_JOB_NUM
+	make -j$THREADS CROSS_COMPILE="$CROSS_COMPILER"
 	
-	# Copy zImage to builds directory
-	if [ -e $KERNEL_DIR/arch/arm/boot/zImage ]
-		cp $KERNEL_DIR/arch/arm/boot/zImage $BUILDS_DIR/zImage_`date +%Y%m%d%H%M`
+	if [ "$GENERATE_ZIP" = y ] ; then
+		if [ -f $KERNEL_DIR/arch/arm/boot/zImage ] ; then
+
+			echo 
+			echo "/*        Creating zip...         */"
+			echo
+		
+			# Generate build zip from built zImage
+			mv $KERNEL_DIR/arch/arm/boot/zImage $CWD/zipcreate
+			cd $CWD/zipcreate
+			zip -r zImage_$BUILD_SUFFIX.zip *
+			rm zImage
+			mv zImage_$BUILD_SUFFIX.zip $BUILDS_DIR
+			echo 
+			echo "zImage_$BUILD_SUFFIX.zip created."	
+		fi
 	fi
 	
-	echo Built image is zImage_`date +%Y%m%d%H%M`
 	if [ $? != 0 ] ; then
 		exit $?
 	fi
 }
 
+echo "**************************************"
+echo "* Electric Sheep kernel build script *"
+echo "*    by k0nane :: k0@k0nane.info     *"
+echo "**************************************"
+echo
 
-
-case "$OPTION" in
-	-k)
-		build_kernel
-		;;
-	*)
-		Usage
-		;;
-esac 
+build_kernel
 
 exit 0
